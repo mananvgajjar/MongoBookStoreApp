@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+    mongodb:
+      image: mongodb/mongodb-atlas-local
+      ports:
+        - 27017:27017
+    bookstore:
+      build: 
+        context: .
+        dockerfile: 'MongoBookStoreApp.Web/Dockerfile'
+      environment:
+         - MONGODB_INITDB_ROOT_USERNAME=manan
+         - MONGODB_INITDB_ROOT_PASSWORD=Effective1?
+      ports:
+      - "5000:5000"
+      - "5001:5001"
